@@ -1,0 +1,24 @@
+# Java
+**/target/
+/.idea/
+*.iml
+
+# Node
+**/analyze-chunks.html
+**/build
+**/*.tsbuildinfo
+**/node_modules
+**/coverage
+
+*.log
+
+# Certificate formats
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+*.jks
+
+# secrets for local development
+**/secrets/

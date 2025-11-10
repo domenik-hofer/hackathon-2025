@@ -1,0 +1,230 @@
+@import './axa-design-tokens.css';
+
+:root {
+    font-size: 16px;
+    /*noinspection CssUnknownProperty*/
+    interpolate-size: allow-keywords;
+    --color-base-taxplatform-blue: #96ccff;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    letter-spacing: 0.02em
+}
+
+body {
+    font: var(--typography-text-regular);
+    color: var(--color-ui-design-dark-grey);
+    -webkit-font-smoothing: antialiased;
+    background-color: var(--color-ui-design-alabaster);
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+
+p {
+    text-wrap: pretty;
+    margin-bottom: var(--typography-margin-text-3-bottom);
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    text-wrap: balance;
+
+    &:first-child {
+        margin-top: 0;
+    }
+}
+
+#root {
+    isolation: isolate;
+}
+
+h1 {
+    font: var(--typography-primary-h1);
+    margin: var(--typography-margin-h1-top) 0 var(--typography-margin-h1-bottom) 0;
+
+    &.secondaryFont {
+        font: var(--typography-secondary-h1);
+    }
+}
+h2 {
+    font: var(--typography-primary-h2);
+    margin: var(--typography-margin-h2-top) 0 var(--typography-margin-h2-bottom) 0;
+
+    &.secondaryFont {
+        font: var(--typography-secondary-h2);
+    }
+}
+h3 {
+    font: var(--typography-primary-h3);
+    margin: var(--typography-margin-h3-top) 0 var(--typography-margin-h3-bottom) 0;
+
+    &.secondaryFont {
+        font: var(--typography-secondary-h3);
+    }
+}
+h4 {
+    font: var(--typography-primary-h4);
+    margin: var(--typography-margin-h4-top) 0 var(--typography-margin-h4-bottom) 0;
+
+    &.secondaryFont {
+        font: var(--typography-secondary-h4);
+    }
+}
+h5 {
+    font: var(--typography-primary-h5);
+    margin: var(--typography-margin-h5-top) 0 var(--typography-margin-h5-bottom) 0;
+
+    &.secondaryFont {
+        font: var(--typography-secondary-h5);
+    }
+}
+h6 {
+    font: var(--typography-primary-h6);
+    margin: var(--typography-margin-h6-top) 0 var(--typography-margin-h6-bottom) 0;
+
+    &.secondaryFont {
+        font: var(--typography-secondary-h6);
+    }
+}
+
+.semiBold {
+    font-weight: 600;
+}
+.bold {
+    font-weight: 700;
+}
+
+ul {
+    list-style-type: '￭';
+    margin-left: 5px;
+    & > li {
+        padding-left: var(--spacing-base-2);
+        margin-bottom: var(--spacing-base-2);
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        &::marker {
+            font-size: 0.7rem;
+            font-weight: 400;
+        }
+
+        & > ul {
+            margin-left: var(--spacing-base-4);
+            list-style-type: '▫';
+            margin-top: var(--spacing-base-2);
+
+            & > li {
+                margin-bottom: 0;
+                &::marker {
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+}
+
+pre {
+    background-color: var(--color-ui-design-alabaster);
+    padding: var(--spacing-base-5);
+    border-radius: var(--radius-base-medium);
+    box-shadow: var(--shadow-box-default);
+}
+
+a {
+    color: var(--color-base-axa-blue);
+    text-decoration: none;
+    cursor: pointer;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+button {
+    all: unset;
+    cursor: pointer;
+}
+
+.componentLabel {
+    font: var(--typography-text-regular);
+    display: block;
+    font-weight: 600;
+    color: var(--color-ui-design-dark-grey);
+    margin-bottom: 10px;
+
+    [class*="disabled"] & {
+        color: var(--color-ui-design-light-grey);
+    }
+}
+
+.skeleton {
+    display: inline-block;
+    height: 1em;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    background-color: #dddbdd;
+    border-radius: var(--radius-base-large);
+
+    &::after {
+        position: absolute;
+        inset: 0;
+        transform: translateX(-100%);
+        background-image: linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0) 0,
+            rgba(255, 255, 255, 0.2) 20%,
+            rgba(255, 255, 255, 0.5) 60%,
+            rgba(255, 255, 255, 0)
+        );
+        animation: shimmer 2s infinite;
+        content: '';
+    }
+}
+@keyframes shimmer {
+    100% {
+        transform: translateX(100%);
+    }
+}
+

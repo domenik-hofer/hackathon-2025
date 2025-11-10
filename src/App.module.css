@@ -1,0 +1,83 @@
+.page {
+    min-height: 100vh;
+
+    .pageBody {
+        padding: var(--spacing-base-9);
+        position: relative;
+    }
+}
+
+.navBar {
+    padding: 0 var(--spacing-base-5);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    box-shadow: var(--shadow-box-default);
+
+    .logo {
+        display: flex;
+        gap: var(--spacing-base-4);
+        align-items: center;
+        width: 65px;
+        cursor: pointer;
+        transition: var(--animation-transition-standard);
+
+        &:hover {
+            scale: 1.05
+        }
+
+        h5 {
+            margin: 0;
+            color: var(--color-base-axa-blue);
+        }
+    }
+
+    .menu {
+        display: flex;
+        overflow: hidden;
+        position: relative;
+
+        &:before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -5px;
+            height: 1px;
+            anchor-name: --hovered;
+        }
+
+        &:after {
+            transition: var(--animation-transition-standard);
+            content: '';
+            position: absolute;
+            position-anchor: --hovered;
+            display: block;
+            height: 5px;
+            bottom: anchor(bottom);
+            left: calc(anchor(left) + var(--spacing-base-5));
+            width: calc(anchor-size(width) - calc(var(--spacing-base-5) * 2));
+            background-color: var(--color-status-warning);
+            border-radius: 2px;
+        }
+        .item {
+            height: 100px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding: 0 var(--spacing-base-5);
+
+
+            &.active {
+                font-weight: 700;
+            }
+
+            &:hover,
+            :not(:has(:hover)) &.active{
+                text-decoration: none;
+                anchor-name: --hovered;
+            }
+        }
+    }
+}
