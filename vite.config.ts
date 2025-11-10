@@ -23,7 +23,7 @@ export default defineConfig({
         }) as PluginOption,
     ],
     server: { port: 3000 },
-    base: '/taxplatform',
+    base: '/hackathon',
     envDir: 'env',
     build: {
         emptyOutDir: true,
