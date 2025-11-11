@@ -2,7 +2,6 @@ import { combineClasses } from '../utils/ClassNameUtil';
 import HomePageStyles from './Home.module.css';
 import { Card } from '../components/card/Card';
 import { Timeline, TimelineItem } from '../components/timeline/Timeline';
-import { Stammdaten} from '../components/userData/UserData';
 
 export default function HomePage() {
     const c = combineClasses({ styles: HomePageStyles });
@@ -53,37 +52,6 @@ export default function HomePage() {
                         </Card.Header>
                         <Card.Body>
                             <Timeline items={timelineItems} />
-                        </Card.Body>
-                    </Card>
-                </div>
-                <div className={c('timeline')}>
-                    <Card>
-                        <Card.Header>
-                            <Card.Title>Stammdaten</Card.Title>
-                        </Card.Header>
-                        <Card.Body>
-                            <div className={c('masterData')}>
-                                <div className={c('dataRow')}>
-                                    <span className={c('label')}>Name</span>
-                                    <span className={c('value')}>Max Mustermann</span>
-                                </div>
-                                <div className={c('dataRow')}>
-                                    <span className={c('label')}>Fallnummer</span>
-                                    <span className={c('value')}>2023-1234567</span>
-                                </div>
-                                <div className={c('dataRow')}>
-                                    <span className={c('label')}>Schadensart</span>
-                                    <span className={c('value')}>Wasserschaden</span>
-                                </div>
-                                <div className={c('dataRow')}>
-                                    <span className={c('label')}>Schadenstag</span>
-                                    <span className={c('value')}>10.06.2023</span>
-                                </div>
-                                <div className={c('dataRow')}>
-                                    <span className={c('label')}>Kontakt</span>
-                                    <span className={c('value')}>mail@maxmustermann.de</span>
-                                </div>
-                            </div>
                         </Card.Body>
                     </Card>
                 </div>
