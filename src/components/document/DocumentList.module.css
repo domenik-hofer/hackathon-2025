@@ -1,0 +1,145 @@
+.document-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.document-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border: 1px solid #e0e6ed;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  box-shadow: none;
+}
+
+.document-info {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex: 1;
+}
+
+.document-details {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.document-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.document-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 13px;
+  color: #64748b;
+}
+
+.document-type {
+  color: #ffffff;
+  font-weight: 600;
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.document-date {
+  color: #64748b;
+  font-weight: 500;
+  font-size: 12px;
+}
+
+.document-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.download-button {
+  background: linear-gradient(135deg, #00008f 0%, #000066 100%);
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  min-height: 32px;
+}
+
+.download-button:hover {
+  background: linear-gradient(135deg, #000066 0%, #000044 100%);
+}
+
+.download-button svg {
+  fill: currentColor;
+  width: 20px;
+  height: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .document-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 16px;
+  }
+  
+  .document-info {
+    width: 100%;
+  }
+  
+  .document-actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+  
+  .document-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+  
+  .download-button {
+    padding: 6px;
+    min-width: 28px;
+    min-height: 28px;
+  }
+  
+  .download-button svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+/* Zusätzliche visuelle Verbesserungen */
+.document-item:nth-child(odd) {
+  background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
+}
+
+.document-item:nth-child(even) {
+  background: linear-gradient(135deg, #fafbfc 0%, #f8fafc 100%);
+}
+
+.document-type.pdf {
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+}
+
+.document-type.jpg {
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
+}
