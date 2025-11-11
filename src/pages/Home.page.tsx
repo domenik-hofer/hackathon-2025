@@ -1,24 +1,88 @@
 import { combineClasses } from '../utils/ClassNameUtil';
 import HomePageStyles from './Home.module.css';
 import { Card } from '../components/card/Card';
+import { Timeline, TimelineItem } from '../components/timeline/Timeline';
 
 export default function HomePage() {
     const c = combineClasses({ styles: HomePageStyles });
+
+    // Timeline data für "Bisheriger Verlauf"
+    const timelineItems: TimelineItem[] = [
+        {
+            id: 1,
+            title: 'Schadensmeldung eingegangen',
+            description: 'Ihre Schadensmeldung wurde erfasst und registriert.',
+            date: '15.06.2023',
+            time: '09:23 Uhr',
+            icon: 'file-text',
+        },
+        {
+            id: 2,
+            title: 'Dokumente angefordert',
+            description: 'Wir benötigen weitere Unterlagen zur Bearbeitung Ihres Falls.',
+            date: '16.06.2023',
+            time: '14:30 Uhr',
+            icon: 'mail',
+        },
+        {
+            id: 3,
+            title: 'Sachbearbeiter zugewiesen',
+            description: 'Ihr Fall wurde Herrn Müller zur Bearbeitung übergeben.',
+            date: '18.06.2023',
+            time: '08:15 Uhr',
+            icon: 'user',
+        },
+        {
+            id: 4,
+            title: 'Bearbeitung gestartet',
+            description: 'Die Prüfung Ihrer Unterlagen hat begonnen.',
+            date: '18.06.2023',
+            time: '10:45 Uhr',
+            icon: 'clipboard-check',
+        },
+    ];
 
     return (
         <>
             <div className={c('layout')}>
                 <div className={c('timeline')}>
-                <Card>
-                    <Card.Body>
-                        Timeline
-                    </Card.Body>
-                </Card>
+                    <Card>
+                        <Card.Header>
+                            <Card.Title>Bisheriger Verlauf</Card.Title>
+                        </Card.Header>
+                        <Card.Body>
+                            <Timeline items={timelineItems} />
+                        </Card.Body>
+                    </Card>
                 </div>
                 <div className={c('timeline')}>
                     <Card>
+                        <Card.Header>
+                            <Card.Title>Stammdaten</Card.Title>
+                        </Card.Header>
                         <Card.Body>
-                            Timeline
+                            <div className={c('masterData')}>
+                                <div className={c('dataRow')}>
+                                    <span className={c('label')}>Name</span>
+                                    <span className={c('value')}>Max Mustermann</span>
+                                </div>
+                                <div className={c('dataRow')}>
+                                    <span className={c('label')}>Fallnummer</span>
+                                    <span className={c('value')}>2023-1234567</span>
+                                </div>
+                                <div className={c('dataRow')}>
+                                    <span className={c('label')}>Schadensart</span>
+                                    <span className={c('value')}>Wasserschaden</span>
+                                </div>
+                                <div className={c('dataRow')}>
+                                    <span className={c('label')}>Schadenstag</span>
+                                    <span className={c('value')}>10.06.2023</span>
+                                </div>
+                                <div className={c('dataRow')}>
+                                    <span className={c('label')}>Kontakt</span>
+                                    <span className={c('value')}>mail@maxmustermann.de</span>
+                                </div>
+                            </div>
                         </Card.Body>
                     </Card>
                 </div>
