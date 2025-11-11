@@ -23,6 +23,9 @@ export function App() {
                         <a className={c('item', activePage === 2 && 'active')} onClick={() => setActivePage(2)}>
                             Profil
                         </a>
+                         <a className={c('item', activePage === 3 && 'active')} onClick={() => setActivePage(3)}>
+                            Kontakt und FAQ
+                        </a>
                     </div>
                 </div>
             </div>
