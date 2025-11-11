@@ -101,6 +101,7 @@
 }
 
 .stammdaten {
+    pointer-events: none;
     position: fixed;
     top: 65px;
     right: 60px;
@@ -117,5 +118,7 @@
     &.visible {
         opacity: 1;
         translate: 0 0;
+        pointer-events: all;
+
     }
 }

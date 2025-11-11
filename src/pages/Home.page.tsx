@@ -3,6 +3,7 @@ import HomePageStyles from './Home.module.css';
 import { Card } from '../components/card/Card';
 import { Timeline, TimelineItem } from '../components/timeline/Timeline';
 import { DocumentList, Document } from '../components/document/DocumentList';
+import { Status } from '../components/status/Status';
 
 export default function HomePage() {
     const c = combineClasses({ styles: HomePageStyles });
@@ -73,7 +74,9 @@ export default function HomePage() {
                 <div className={c('timeline')}>
                     <Card>
                         <Card.Header>
-                            <Card.Title>Bisheriger Verlauf</Card.Title>
+                            <Card.Title>
+                                <h4>Bisheriger Verlauf</h4>
+                            </Card.Title>
                         </Card.Header>
                         <Card.Body>
                             <Timeline items={timelineItems} />
@@ -90,6 +93,13 @@ export default function HomePage() {
                         </Card.Body>
                     </Card>
                 </div>
+                <div className={c('status')}>
+                <Card>
+                    <Card.Body>
+                        <Status />
+                    </Card.Body>
+                </Card>
+            </div>
             </div>
         </>
     );
