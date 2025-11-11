@@ -4,6 +4,7 @@ import { combineClasses } from './utils/ClassNameUtil';
 import {useState} from 'react';
 import HomePage from './pages/Home.page';
 import ExamplePage from './pages/example/Example.page';
+import { Chatbot } from './components/chatbot/Chatbot';
 
 export function App() {
     const c = combineClasses({ styles: AppStyles });
@@ -30,6 +31,7 @@ export function App() {
                 {activePage === 0 && <HomePage />}
                 {activePage === 1 && <ExamplePage />}
             </div>
+            <Chatbot />
         </div>
     );
 }
