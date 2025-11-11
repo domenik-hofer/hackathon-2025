@@ -18,10 +18,10 @@ export function App() {
                     </div>
                     <div className={c('menu')}>
                         <a className={c('item', activePage === 1 && 'active')} onClick={() => setActivePage(1)}>
-                            Beispiel-Seite
+                            Fallnummer
                         </a>
                         <a className={c('item', activePage === 2 && 'active')} onClick={() => setActivePage(2)}>
-                            Beispiel-Seite
+                            Profil
                         </a>
                     </div>
                 </div>
