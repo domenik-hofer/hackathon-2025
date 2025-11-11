@@ -1,0 +1,101 @@
+.button {
+    position: fixed;
+    bottom: var(--spacing-base-5);
+    right: var(--spacing-base-5);
+}
+
+.icon {
+    display: flex;
+    justify-content: end;
+}
+
+.tooltip {
+    border: 2px solid var(--color-status-info);
+    padding: 5px 10px;
+    border-radius: var(--radius-base-medium);
+    color: var(--color-status-info);
+    margin-right: 50px;
+}
+
+.chat {
+    position: fixed;
+    bottom: 94px;
+    right: 74px;
+    background: white;
+    padding: 45px var(--spacing-base-5);
+    box-shadow: var(--shadow-box-default);
+    border-radius: var(--radius-base-medium);
+    width: 450px;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+
+    .messages {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+    }
+
+    .message {
+        display: flex;
+        gap: 10px;
+
+        &.user {
+            justify-content: flex-end;
+
+            .bubble {
+                background: var(--color-ui-design-burnt-sienna);
+            }
+        }
+
+    }
+
+    .bubble {
+        max-width: 300px;
+        background: var(--color-status-info);
+        color: var(--color-ui-design-white);
+        padding: 15px 20px;
+        border-radius: var(--radius-base-medium);
+
+        .text {
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            margin-top: 20px;
+
+            .option {
+                border: 2px solid var(--color-ui-design-white);
+                padding: 5px 10px;
+                border-radius: var(--radius-base-medium);
+                color: var(--color-ui-design-white);
+            }
+        }
+    }
+
+    .inputArea{
+        display: flex;
+
+        input {
+            width: 100%;
+            background: #fff ;
+            border: 1px solid #999 ;
+            box-sizing: border-box ;
+            border-radius: 50px ;
+            padding: 15px 26px ;
+        }
+
+        .sendButton {
+            margin-left: 10px ;
+
+            border-radius: 50px ;
+            padding: 15px 26px ;
+            color: #fff ;
+            border: none ;
+            cursor: pointer ;
+        }
+    }
+}

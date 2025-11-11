@@ -7,6 +7,7 @@ import ExamplePage from './pages/example/Example.page';
 import LoginPage from './pages/login/LoginPage';
 import { StammdatenCard } from './components/userData/UserData';
 import { useState } from 'react';
+import { Chatbot } from './components/chatbot/Chatbot';
 
 export function App() {
     const { activePage, setActivePage } = usePage();
@@ -40,6 +41,7 @@ export function App() {
                 schadenstag='10.06.2023'
                 kontakt='mail@maxmustermann.de'
             />
+            <Chatbot />
         </div>
     );
 }
