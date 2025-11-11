@@ -1,10 +1,13 @@
 .container {
   width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
   background: var(--color-ui-design-white);
   border-radius: var(--radius-base-large);
-  border: 1px solid var(--color-ui-design-mercury);
-  box-shadow: var(--shadow-box-default);
+  border: 1px solid rgba(0,0,0,0.04);
+  box-shadow: var(--shadow-box-high);
   padding: 0; /* header handles top padding */
+  overflow: hidden; /* keep header band rounded */
 }
 
 .header {
@@ -31,7 +34,7 @@
   gap: var(--spacing-base-3) var(--spacing-base-4);
 }
 
-@media (min-width: 768px) {
+@media (min-width: 350px) {
   .grid {
     grid-template-columns: repeat(2, minmax(0,1fr));
   }
@@ -67,8 +70,6 @@
 .headerBar {
   background: var(--color-base-axa-blue);
   color: white;
-  border-top-left-radius: var(--radius-base-large);
-  border-top-right-radius: var(--radius-base-large);
   padding: calc(var(--spacing-base-4)) calc(var(--spacing-base-5));
 }
 
@@ -81,6 +82,7 @@
 .headerBar .headingTitle {
   font: var(--typography-secondary-h4);
   color: white;
+  font-weight: 700;
 }
 
 .headerBar .headingSub {
@@ -90,10 +92,11 @@
 
 .content {
   padding: var(--spacing-base-4) var(--spacing-base-5);
+  background: var(--color-ui-design-white);
 }
 
 .personName {
-  font: var(--typography-primary-h5);
+  font: var(--typography-primary-h4);
   font-weight: 700;
   color: var(--color-ui-design-dark-grey);
 }
@@ -103,14 +106,33 @@
   color: var(--color-ui-design-medium-grey);
 }
 
+.description {
+  margin-top: var(--spacing-base-3);
+  color: var(--color-ui-design-medium-grey);
+  font: var(--typography-text-regular);
+  max-width: 100%;
+  line-height: 1.4;
+}
+
+.section {
+  margin-top: var(--spacing-base-2);
+}
+
+.sectionLabel {
+  font: var(--typography-text-small);
+  color: var(--color-ui-design-medium-grey);
+  margin-bottom: var(--spacing-base-2);
+  text-transform: none;
+}
+
 .metaGrid {
   margin-top: var(--spacing-base-5);
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--spacing-base-4);
+  gap: var(--spacing-base-5);
 }
 
-@media (min-width: 768px) {
+@media (min-width: 640px) {
   .metaGrid {
     grid-template-columns: repeat(2, 1fr);
   }
