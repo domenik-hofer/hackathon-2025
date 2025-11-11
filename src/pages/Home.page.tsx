@@ -2,6 +2,7 @@ import { combineClasses } from '../utils/ClassNameUtil';
 import HomePageStyles from './Home.module.css';
 import { Card } from '../components/card/Card';
 import { Timeline, TimelineItem } from '../components/timeline/Timeline';
+import { Stammdaten} from '../components/userData/UserData';
 
 export default function HomePage() {
     const c = combineClasses({ styles: HomePageStyles });
