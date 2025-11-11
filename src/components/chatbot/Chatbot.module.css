@@ -2,6 +2,7 @@
     position: fixed;
     bottom: var(--spacing-base-5);
     right: var(--spacing-base-5);
+    cursor: pointer;
 }
 
 .icon {
@@ -29,6 +30,19 @@
     display: flex;
     gap: 10px;
     flex-direction: column;
+    opacity: 0;
+    translate: 10px 10px;
+    transition: var(--animation-transition-standard);
+
+    @starting-style {
+        opacity: 0;
+        translate: 0 0;
+    }
+
+    &.visible{
+        opacity: 1;
+        translate: 0 0;
+    }
 
     .messages {
         display: flex;

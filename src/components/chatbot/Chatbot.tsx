@@ -1,15 +1,17 @@
 
 import { combineClasses } from '../../utils/ClassNameUtil';
 import ChatbotStyles from './Chatbot.module.css';
+import {useState} from 'react';
 
 
 
 export function Chatbot() {
     const c = combineClasses({ styles: ChatbotStyles });
+    const [isOpen, setIsOpen] = useState(false);
 
     return (
         <div className={c('chatbot')}>
-            <div className={c('button')}>
+            <div className={c('button')} onClick={() => setIsOpen(!isOpen)}>
                 <div className={c('tooltip')}>Kann ich Ihnen helfen?</div>
                 <div className={c('icon')}>
                     <svg xmlns='http://www.w3.org/2000/svg' width='70' height='70' viewBox='0 0 70 70' fill='none'>
@@ -63,7 +65,7 @@ export function Chatbot() {
                     </svg>
                 </div>
             </div>
-            <div className={c('chat')}>
+            <div className={c('chat', isOpen && 'visible')}>
                 <div className={c('messages')}>
                     <div className={c('message')}>
                         <div className={c('bot')}>

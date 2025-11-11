@@ -41,7 +41,7 @@ export function App() {
                 schadenstag='10.06.2023'
                 kontakt='mail@maxmustermann.de'
             />
-            <Chatbot />
+            {activePage != 0 && <Chatbot />}
         </div>
     );
 }
