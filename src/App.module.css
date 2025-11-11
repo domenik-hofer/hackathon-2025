@@ -2,7 +2,7 @@
     min-height: 100vh;
 
     .pageBody {
-        padding: var(--spacing-base-9);
+        /*padding: var(--spacing-base-9);*/
         position: relative;
     }
 }
