@@ -2,6 +2,7 @@ import { combineClasses } from '../utils/ClassNameUtil';
 import HomePageStyles from './Home.module.css';
 import { Card } from '../components/card/Card';
 import { Timeline, TimelineItem } from '../components/timeline/Timeline';
+import { DocumentList, Document } from '../components/document/DocumentList';
 
 export default function HomePage() {
     const c = combineClasses({ styles: HomePageStyles });
@@ -42,6 +43,30 @@ export default function HomePage() {
         },
     ];
 
+    // Beispieldokumente für "Eingereichte Dokumente"
+    const documents: Document[] = [
+        {
+            name: 'Schadensmeldung Formular',
+            type: 'PDF',
+            uploadDate: '2023-06-15',
+        },
+        {
+            name: 'Fotos vom Schaden',
+            type: 'JPG',
+            uploadDate: '2023-06-15',
+        },
+        {
+            name: 'Kostenvoranschlag Handwerker',
+            type: 'PDF',
+            uploadDate: '2023-06-18',
+        },
+        {
+            name: 'Gutachten Sachverständiger',
+            type: 'PDF',
+            uploadDate: '2023-06-20',
+        },
+    ];
+
     return (
         <>
             <div className={c('layout')}>
@@ -52,6 +77,16 @@ export default function HomePage() {
                         </Card.Header>
                         <Card.Body>
                             <Timeline items={timelineItems} />
+                        </Card.Body>
+                    </Card>
+                </div>
+                <div className={c('documents')}>
+                    <Card>
+                        <Card.Header>
+                            <Card.Title>Eingereichte Dokumente</Card.Title>
+                        </Card.Header>
+                        <Card.Body>
+                            <DocumentList documents={documents} />
                         </Card.Body>
                     </Card>
                 </div>
