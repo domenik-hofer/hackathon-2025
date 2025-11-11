@@ -2,9 +2,11 @@
   position: relative;
 }
 
+/* Use a CSS variable so connector height matches spacing dynamically */
 .timelineItem {
+  --connector-gap: 1.5rem;
   display: flex;
-  margin-bottom: 1.5rem;
+  margin-bottom: var(--connector-gap);
 }
 
 .timelineItem:last-child {
@@ -35,14 +37,28 @@
   filter: brightness(0) saturate(100%) invert(1);
 }
 
+/* Wrapper below the icon holding the arrow head (svg chevron) and the vertical line */
+.connectorWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 2px; /* aligns with connector width */
+  margin-top: 4px; /* small gap below circle icon */
+  position: relative;
+}
+
+.connectorWrapper svg {
+  /* Arrow head at the very top */
+  margin-bottom: 4px;
+  transform: rotate(90deg); /* point arrow downward */
+  fill: var(--color-greyscale-5);
+}
+
 .connector {
-  position: absolute;
-  top: 2.5rem;
-  left: 50%;
-  transform: translateX(-50%);
   width: 2px;
-  height: 1.5rem;
+  height: var(--connector-gap);
   background-color: var(--color-greyscale-5);
+  flex: 0 0 auto;
 }
 
 .content {
