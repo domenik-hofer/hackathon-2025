@@ -5,7 +5,7 @@ import { usePage } from '../../context/PageContext';
 
 const LoginForm: React.FC = () => {
     const [claimNumber, setClaimNumber] = useState('BLD-2023-001');
-    const [lastName, setLastName] = useState('Smith');
+    const [lastName, setLastName] = useState('Mustermann');
     const [error, setError] = useState('');
     const { validateClaim, setCurrentClaim } = useClaims();
     const { setActivePage } = usePage();

@@ -23,6 +23,8 @@ export type StammdatenProps = {
   schadensart: string;
   schadensbeschreibung?: string;
   schadenstag: string | Date; // akzeptiert "10.06.2023" oder ein Date-Objekt
+  estimatedCompletion?: string | Date; // geschätztes Abschlussdatum
+  assignedTo?: string; // zugewiesener Sachbearbeiter
   kontakt?: string;
   className?: string;
 };
@@ -44,6 +46,8 @@ export function StammdatenCard({
   schadensart,
   schadensbeschreibung,
   schadenstag,
+  estimatedCompletion,
+  assignedTo,
   kontakt,
   className,
 }: StammdatenProps) {
@@ -82,12 +86,12 @@ export function StammdatenCard({
 
           <div>
             <div className={styles.metaItemLabel}><img src={calendarIcon} className={styles.icon} alt="calendar"/> <div>Estimated Completion</div></div>
-            <div className={styles.metaItemValue}>—</div>
+            <div className={styles.metaItemValue}>{estimatedCompletion ? formatDate(estimatedCompletion) : '—'}</div>
           </div>
 
           <div>
             <div className={styles.metaItemLabel}><img src={mailIcon} className={styles.icon} alt="user"/> <div>Assigned To</div></div>
-            <div className={styles.metaItemValue}>—</div>
+            <div className={styles.metaItemValue}>{assignedTo ?? '—'}</div>
           </div>
 
           <div>
@@ -119,23 +123,6 @@ const Body: React.FC<UserDataBodyProps> = ({ children }) => {
 UserData.Body = Body;
 
 export { UserData };
-
-// --- Optional: kleine Demo-Komponente zum direkten Testen ---
-export function Demo() {
-  return (
-    <div className="min-h-screen bg-neutral-50 p-6 md:p-12">
-      <div className="max-w-3xl mx-auto">
-        <StammdatenCard
-          name="Max Mustermann"
-          fallnummer="2023-1234567"
-          schadensart="Wasserschaden"
-          schadenstag="10.06.2023"
-          kontakt="mail@maxmustermann.de"
-        />
-      </div>
-    </div>
-  );
-}
 
 // re-export a convenient name used in pages
 export const Stammdaten = StammdatenCard;

@@ -1,12 +1,5 @@
 import { combineClasses } from '../../utils/ClassNameUtil';
 import TimelineStyles from './Timeline.module.css';
-import { Icon } from '../icon/Icon';
-import { Chatbot } from '../chatbot/Chatbot';
-import { StammdatenCard } from '../userData/UserData';
-import { usePage } from '../../context/PageContext';
-import { useEffect, useRef, useState } from 'react';
-import AppStyles from '../../App.module.css';
-import { Button } from '../button/Button';
 
 const c = combineClasses({ styles: TimelineStyles });
 

@@ -1,60 +1,42 @@
 import AppStyles from './App.module.css';
 import { usePage } from './context/PageContext';
 
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { StammdatenCard } from './components/userData/UserData';
 import HomePage from './pages/Home.page';
 import ExamplePage from './pages/example/Example.page';
 import LoginPage from './pages/login/LoginPage';
 import { combineClasses } from './utils/ClassNameUtil';
-import { Timeline, TimelineItem } from './components/timeline/Timeline';
-import { Button } from './components/button/Button';
 import claimstrackPng from './assets/icons/claimstrack.png';
+import {
+    buildStammdatenFromClaimAndPerson,
+    claimsMeta,
+    persons,
+} from './utils/mockData';
 
-// Timeline data für "Bisheriger Verlauf"
-const timelineItems: TimelineItem[] = [
-    {
-        id: 1,
-        title: 'Schadensmeldung eingegangen',
-        description: 'Ihre Schadensmeldung wurde erfasst und registriert.',
-        date: '15.06.2023',
-        time: '09:23 Uhr',
-        icon: 'file-text',
-    },
-    {
-        id: 2,
-        title: 'Dokumente angefordert',
-        description: 'Wir benötigen weitere Unterlagen zur Bearbeitung Ihres Falls.',
-        date: '16.06.2023',
-        time: '14:30 Uhr',
-        icon: 'mail',
-    },
-    {
-        id: 3,
-        title: 'Sachbearbeiter zugewiesen',
-        description: 'Ihr Fall wurde Herrn Müller zur Bearbeitung übergeben.',
-        date: '18.06.2023',
-        time: '08:15 Uhr',
-        icon: 'user',
-    },
-    {
-        id: 4,
-        title: 'Bearbeitung gestartet',
-        description: 'Die Prüfung Ihrer Unterlagen hat begonnen.',
-        date: '18.06.2023',
-        time: '10:45 Uhr',
-        icon: 'clipboard-check',
-    },
-];
+// (timelineItems available from mocks; not used directly in App)
 import { Chatbot } from './components/chatbot/Chatbot';
-import { StammdatenCard } from './components/userData/UserData';
-import { useState, useRef, useEffect } from 'react';
 
 export function App() {
     const { activePage, setActivePage } = usePage();
     const [showStammdaten, setShowStammdaten] = useState(false);
     const stamRef = useRef<HTMLDivElement | null>(null);
     const profileRef = useRef<HTMLDivElement | null>(null);
+
+    const claim = claimsMeta[0];
+    const person = claim
+        ? persons.find((p) => p.id === claim.personId) ?? persons[0]
+        : persons[0];
+    const stammdatenBasic =
+        claim && person
+            ? buildStammdatenFromClaimAndPerson(claim, person)
+            : undefined;
+    const stammdatenDetailed =
+        claim && person
+            ? buildStammdatenFromClaimAndPerson(claim, person, {
+                  includeDescription: true,
+              })
+            : undefined;
 
     useEffect(() => {
         function onDocClick(e: MouseEvent) {
@@ -94,26 +76,21 @@ export function App() {
                 {activePage === 1 && <HomePage />}
                 {activePage === 2 && <ExamplePage />}
             </div>
-            <StammdatenCard
-                className={c('stammdaten', showStammdaten && 'visible')}
-                name='Max Mustermann'
-                fallnummer='2023-1234567'
-                schadensart='Wasserschaden'
-                schadenstag='10.06.2023'
-                kontakt='mail@maxmustermann.de'
-            />
+            {stammdatenBasic ? (
+                <StammdatenCard
+                    className={c('stammdaten', showStammdaten && 'visible')}
+                    {...stammdatenBasic}
+                />
+            ) : null}
 
             {activePage != 0 && <Chatbot />}
             <div ref={stamRef}>
-                <StammdatenCard
-                    className={c('stammdaten', showStammdaten && 'visible')}
-                    name='Max Mustermann'
-                    schadensbeschreibung='Leckage in der Küche, verursacht durch defektes Rohr.'
-                    fallnummer='2023-1234567'
-                    schadensart='Wasserschaden'
-                    schadenstag='10.06.2023'
-                    kontakt='mail@maxmustermann.de'
-                />
+                {stammdatenDetailed ? (
+                    <StammdatenCard
+                        className={c('stammdaten', showStammdaten && 'visible')}
+                        {...stammdatenDetailed}
+                    />
+                ) : null}
             </div>
 
             {/** click-outside: close Stammdaten when user clicks outside of it (and not on the profile button) */}
