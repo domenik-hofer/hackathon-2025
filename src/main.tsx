@@ -5,6 +5,7 @@ import { createRoot } from 'react-dom/client';
 
 import { App } from './App';
 import { ClaimsProvider } from './context/ClaimsContext';
+import { PageProvider } from './context/PageContext';
 
 const container = document.getElementById('root') as HTMLElement;
 
@@ -19,5 +20,9 @@ root.render(
 );
 
 function Main() {
-    return <App />;
+    return (
+        <PageProvider>
+            <App />
+        </PageProvider>
+    );
 }

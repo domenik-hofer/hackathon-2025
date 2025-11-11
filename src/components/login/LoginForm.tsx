@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import { useClaims } from '../../context/ClaimsContext';
 import LoginFormStyles from './LoginForm.module.css';
+import { usePage } from '../../context/PageContext';
 
 const LoginForm: React.FC = () => {
-    const [claimNumber, setClaimNumber] = useState('');
-    const [lastName, setLastName] = useState('');
+    const [claimNumber, setClaimNumber] = useState('BLD-2023-001');
+    const [lastName, setLastName] = useState('Smith');
     const [error, setError] = useState('');
     const { validateClaim, setCurrentClaim } = useClaims();
+    const { setActivePage } = usePage();
+
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         if (!claimNumber || !lastName) {
@@ -16,6 +19,7 @@ const LoginForm: React.FC = () => {
         const claimId = validateClaim(claimNumber, lastName);
         if (claimId) {
             setCurrentClaim(claimId);
+            setActivePage(1)
             console.log('Login successful, claim ID:', claimId);
         } else {
             setError('Invalid claim number or last name');
