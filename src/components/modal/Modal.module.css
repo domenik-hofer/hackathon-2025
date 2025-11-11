@@ -16,6 +16,7 @@
   width: calc(100% - 48px);
   max-height: calc(100vh - 80px);
   overflow: auto;
+  position: relative; /* ensure absolute-positioned close button is positioned relative to content */
 }
 
 .closeBtn {

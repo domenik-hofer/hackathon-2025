@@ -21,6 +21,7 @@ export type StammdatenProps = {
   name: string;
   fallnummer: string;
   schadensart: string;
+  schadensbeschreibung?: string;
   schadenstag: string | Date; // akzeptiert "10.06.2023" oder ein Date-Objekt
   kontakt?: string;
   className?: string;
@@ -37,23 +38,11 @@ function formatDate(value: string | Date) {
   return value; // angenommen bereits im richtigen Format
 }
 
-function Field({ label, value, icon }: { label: string; value?: React.ReactNode; icon?: string }) {
-  if (value === undefined || value === null || value === "") return null;
-  return (
-    <div className={styles.field}>
-      {icon ? <img src={icon} alt="" className={styles.icon} /> : null}
-      <div>
-        <div className={styles.label}>{label}</div>
-        <div className={styles.value}>{value}</div>
-      </div>
-    </div>
-  );
-}
-
 export function StammdatenCard({
   name,
   fallnummer,
   schadensart,
+  schadensbeschreibung,
   schadenstag,
   kontakt,
   className,
@@ -62,15 +51,27 @@ export function StammdatenCard({
     <div className={`${styles.container} ${className ?? ''}`}>
       <div className={styles.headerBar}>
         <div className="headingRow">
-          <div className="headingTitle"><h4>Stammdaten</h4></div>
-          <div className="headingSub">Claim # {fallnummer}</div>
+          <div className="headingTitle"><h4>Claim # {fallnummer}</h4></div>
         </div>
       </div>
 
       <div className={styles.content}>
         <div>
           <div className={styles.personName}>{name} <span style={{marginLeft:12, fontWeight:600}} className="semiBold"></span></div>
-          <div className={styles.personSubtitle}>{schadensart}</div>
+          <div className={styles.section}>
+            <div className={styles.sectionLabel}>Fallart</div>
+            <div className={styles.personSubtitle}>{schadensart}</div>
+          </div>
+        </div>
+
+        <div>
+          {/** detailed damage description placed between title and meta grid */}
+          {schadensbeschreibung ? (
+            <>
+              <div className={styles.sectionLabel}>Beschreibung</div>
+              <p className={styles.description}>{schadensbeschreibung}</p>
+            </>
+          ) : null}
         </div>
 
         <div className={styles.metaGrid}>
