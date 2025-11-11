@@ -1,20 +1,32 @@
 .layout {
     display: grid;
-    grid-template-columns: 25% 1fr;
+    grid-template-columns: 500px 1fr;
     grid-template-rows: 1fr 1fr;
     gap: 1.5rem;
     margin: 0 auto;
     padding: 1.5rem;
-    height: 100vh;
+    height: calc(100vh - 100px);
+    align-items: stretch;
+
+    .timeline {
+        > div {
+            height: 100%;
+        }
+    }
+
+    .documents {
+        > div {
+            height: 100%;
+        }
+    }
 
     .status {
         grid-column: 2 / 3;
-        grid-row: 1 /4 ;
+        grid-row: 1 / 3 ;
         height: 100%;
 
-        & + div {
+        > div {
             height: 100%;
-            box-sizing: border-box;
         }
     }
 }

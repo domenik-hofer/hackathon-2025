@@ -25,6 +25,18 @@ function formatDate(dateString: string): string {
 export function DocumentList({ documents }: DocumentListProps) {
     return (
         <div className={c('document-list')}>
+            <div className={c('mainTitle')}>
+                <h5>Eingereichte Dokumente</h5>
+
+                <a
+                    className={c('allEntriesLink')}
+                    data-bs-toggle='offcanvas'
+                    data-bs-target='#offcanvasWithBothOptions'
+                    aria-controls='offcanvasWithBothOptions'
+                >
+                    Gesamter Verlauf
+                </a>
+            </div>
             {documents.map((doc, index) => (
                 <div 
                     key={index} 

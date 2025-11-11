@@ -8,6 +8,7 @@
   box-shadow: var(--shadow-box-high);
   padding: 0; /* header handles top padding */
   overflow: hidden; /* keep header band rounded */
+    z-index: 10;
 }
 
 .header {

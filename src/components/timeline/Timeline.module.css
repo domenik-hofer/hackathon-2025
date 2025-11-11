@@ -1,12 +1,35 @@
 .timeline {
   position: relative;
+
+     > div {
+        height: 100%;
+    }
 }
 
-/* Use a CSS variable so connector height matches spacing dynamically */
+.mainTitle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+
+    h5 {
+        margin: 0
+    }
+
+    .allEntriesLink {
+        color: var(--color-base-axa-blue);
+        text-decoration: underline;
+    }
+}
+
+
+
+    /* Use a CSS variable so connector height matches spacing dynamically */
 .timelineItem {
   --connector-gap: 1.5rem;
   display: flex;
   margin-bottom: var(--connector-gap);
+    align-items: start;
 }
 
 .timelineItem:last-child {
@@ -19,6 +42,12 @@
   flex-direction: column;
   align-items: center;
   margin-right: 1rem;
+
+    .small & {
+
+translate: 0 5px;
+    }
+
 }
 
 .icon {
@@ -31,6 +60,16 @@
   border-radius: 50%;
   z-index: 2;
   padding: 0.5rem;
+
+    .small & {
+
+        width: 20px;
+        height: 20px;
+
+        svg {
+            display: none;
+        }
+    }
 }
 
 .icon :global(.white) {

@@ -26,6 +26,22 @@ export default function HomePage() {
             time: '14:30 Uhr',
             icon: 'mail',
         },
+        {
+            id: 3,
+            title: 'Sachbearbeiter zugewiesen',
+            description: 'Ihr Fall wurde Herrn Müller zur Bearbeitung übergeben.',
+            date: '18.06.2023',
+            time: '08:15 Uhr',
+            icon: 'user',
+        },
+        {
+            id: 4,
+            title: 'Bearbeitung gestartet',
+            description: 'Die Prüfung Ihrer Unterlagen hat begonnen.',
+            date: '18.06.2023',
+            time: '10:45 Uhr',
+            icon: 'clipboard-check',
+        },
     ];
 
     // Beispieldokumente für "Eingereichte Dokumente"
@@ -47,13 +63,8 @@ export default function HomePage() {
             <div className={c('layout')}>
                 <div className={c('timeline')}>
                     <Card>
-                        <Card.Header>
-                            <Card.Title>
-                                <h5>Bisheriger Verlauf</h5>
-                            </Card.Title>
-                        </Card.Header>
                         <Card.Body>
-                            <Timeline items={timelineItems} />
+                            <Timeline size='small' items={timelineItems} />
                         </Card.Body>
                     </Card>
                 </div>
@@ -67,11 +78,6 @@ export default function HomePage() {
                 </div>
                 <div className={c('documents')}>
                     <Card>
-                        <Card.Header>
-                            <Card.Title>
-                                <h5>Eingereichte Dokumente</h5>
-                                </Card.Title>
-                        </Card.Header>
                         <Card.Body>
                             <DocumentList documents={documents} />
                         </Card.Body>
