@@ -87,27 +87,54 @@
 }
 
 .download-button {
-  background: linear-gradient(135deg, #00008f 0%, #000066 100%);
+  /* make download button visually minimal (no dark square) */
+  background: transparent;
   border: none;
-  color: white;
+  color: var(--color-base-axa-blue, #0f172a);
   cursor: pointer;
-  padding: 8px;
+  padding: 4px;
   border-radius: 6px;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-width: 32px;
-  min-height: 32px;
+  min-width: 0;
+  min-height: 0;
 }
 
 .download-button:hover {
-  background: linear-gradient(135deg, #000066 0%, #000044 100%);
+  background: rgba(59,130,246,0.06);
 }
 
 .download-button svg {
   fill: currentColor;
   width: 20px;
   height: 20px;
+}
+
+.more-item {
+  cursor: pointer;
+}
+
+/* hide the large dark square used previously and keep the 'more' row compact */
+.more-icon {
+  display: none;
+}
+
+.moreLink {
+  color: var(--color-base-axa-blue);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.moreCompact {
+  display: inline-block;
+  padding: 6px 10px;
+  background: var(--color-ui-design-muted, #f1f5f9);
+  color: var(--color-ui-design-dark-grey, #374151);
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 13px;
 }
 
 /* Responsive Design */
