@@ -23,7 +23,7 @@ function formatDate(dateString: string): string {
 }
 
 export function DocumentList({ documents }: DocumentListProps) {
-    const maxVisible = 3;
+    const maxVisible = 2;
     const visible = documents.slice(0, maxVisible);
     const remaining = Math.max(0, documents.length - maxVisible);
 
@@ -38,7 +38,7 @@ export function DocumentList({ documents }: DocumentListProps) {
                     data-bs-target='#offcanvasDocuments'
                     aria-controls='offcanvasDocuments'
                 >
-                    Gesamter Verlauf
+                    Alle Dokumente
                 </a>
             </div>
 
@@ -109,17 +109,7 @@ export function DocumentList({ documents }: DocumentListProps) {
                 </div>
             ))}
 
-            {remaining > 0 && (
-                <div className={c('moreRow')}>
-                    <a
-                        className={c('moreCompact')}
-                        data-bs-toggle='offcanvas'
-                        data-bs-target='#offcanvasDocuments'
-                    >
-                        Weitere {remaining} Dokumente
-                    </a>
-                </div>
-            )}
+
         </div>
     );
 }

@@ -99,7 +99,7 @@ export const getStatusColor = (status: Claim['status']) => {
 export const persons: Person[] = [
   {
     id: 'person-001',
-    fullName: 'Max Mustermann',
+    fullName: 'Beat Schweizer',
     email: 'mail@maxmustermann.de',
     phone: '555-123-4567',
   },
@@ -108,14 +108,14 @@ export const persons: Person[] = [
 export const claimsMeta: NormalizedClaimMeta[] = [
   {
     id: 'claim-001',
-    claimNumber: 'BLD-2023-001',
+    claimNumber: '1234567/0001',
     status: 'in_review',
     submissionDate: '2023-10-15',
     estimatedCompletion: '2023-11-15',
     description: 'Wasserschaden durch Rohrbruch in der Küche',
     personId: 'person-001',
     password: 'secure123',
-    assignedTo: 'Herr Müller',
+    assignedTo: 'Schweizer',
   },
 ]
 
@@ -148,33 +148,42 @@ export const claimDocuments: ClaimDocument[] = [
 
 export const claimEvents: ClaimEvent[] = [
   {
-    id: 'evt-001',
-    claimId: 'claim-001',
-    date: '2023-10-15',
-    time: '09:23',
-    type: 'submitted',
-    message: 'Schadensmeldung erfolgreich eingereicht',
-    icon: 'file-text',
+      claimId: 'claim-001',
+      date: '2025-10-11',
+      title: 'Schadenmeldung eingegangen',
   },
-  {
-    id: 'evt-002',
-    claimId: 'claim-001',
-    date: '2023-10-17',
-    time: '10:05',
-    type: 'assigned',
-    message: 'Sachbearbeiter Herr Müller wurde zugewiesen',
-    icon: 'user',
-  },
-  {
-    id: 'evt-003',
-    claimId: 'claim-001',
-    date: '2023-10-22',
-    time: '15:40',
-    type: 'assessment_complete',
-    message: 'Erste Bewertung abgeschlossen. Wartet auf Prüfung des Kostenvoranschlags.',
-    icon: 'clipboard-check',
-  },
-]
+    {
+        claimId: 'claim-001',
+        date: '2025-10-12',
+        title: 'Prüfung begonnen',
+    },
+    {
+        claimId: 'claim-001',
+        date: '2025-10-12',
+        title: 'Bericht Gutachten angefordert',
+    },
+    {
+        claimId: 'claim-001',
+        date: '2025-10-13',
+        title: 'Reparaturrechnung hochgeladen',
+    },
+    {
+        claimId: 'claim-001',
+        date: '2025-10-15',
+        title: 'Reparaturrechnung erhalten',
+    },
+    {
+        claimId: 'claim-001',
+        date: '2025-10-12',
+        title: 'Bericht Gutachten erhalten',
+    },
+    {
+        claimId: 'claim-001',
+        date: '2025-10-12',
+        title: 'Dokumente abschliessend geprüft',
+    },
+
+    ]
 
 // ---------------------------------------------------------
 // Helper-Funktionen für neue strukturierte Daten
@@ -250,12 +259,9 @@ export function buildStammdatenFromClaimAndPerson(
 
 export function buildTimelineItemsFromEvents(events: ClaimEvent[]): TimelineItem[] {
   return events.map((e, idx) => ({
-    id: idx + 1,
-    title: mapEventTypeToTitle(e),
+    title: e.title,
     description: e.message,
     date: formatGermanDate(e.date),
-    time: e.time ? `${e.time} Uhr` : '',
-    icon: e.icon || mapEventTypeToIcon(e.type),
   }))
 }
 

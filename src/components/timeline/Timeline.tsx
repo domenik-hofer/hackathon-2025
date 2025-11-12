@@ -81,7 +81,7 @@ export function Timeline({ items }: TimelineProps) {
                         <div key={item.id} className={c('timelineItem', 'small')}>
                             <div className={c('iconContainer')}>
                                 <div className={c('icon')}></div>
-                                {index < sorted.length - 1 && (
+                                {index < sorted.length - sorted.length + 2 && (
                                     <div className={c('connectorWrapper')}>
                                         <svg
                                             xmlns='http://www.w3.org/2000/svg'

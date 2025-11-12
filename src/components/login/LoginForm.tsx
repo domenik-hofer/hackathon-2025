@@ -5,8 +5,8 @@ import { usePage } from '../../context/PageContext';
 import { Button } from '../button/Button';
 
 const LoginForm: React.FC = () => {
-    const [claimNumber, setClaimNumber] = useState('BLD-2023-001');
-    const [lastName, setLastName] = useState('Mustermann');
+    const [claimNumber, setClaimNumber] = useState('1234567/0001');
+    const [lastName, setLastName] = useState('Schweizer');
     const [error, setError] = useState('');
     const { validateClaim, setCurrentClaim } = useClaims();
     const { setActivePage } = usePage();
@@ -40,7 +40,7 @@ const LoginForm: React.FC = () => {
                         value={claimNumber}
                         onChange={e => setClaimNumber(e.target.value)}
                         className={LoginFormStyles['form-input']}
-                        placeholder='e.g. BLD-2023-001'
+                        placeholder='e.g. 1234567/0001'
                     />
                 </div>
                 <div className={LoginFormStyles['form-group']}>
@@ -53,7 +53,7 @@ const LoginForm: React.FC = () => {
                         value={lastName}
                         onChange={e => setLastName(e.target.value)}
                         className={LoginFormStyles['form-input']}
-                        placeholder='e.g. Smith'
+                        placeholder='Schweizer'
                     />
                 </div>
                 {error && (
