@@ -82,18 +82,42 @@
     }
     /* re-add profile avatar in the right corner purely via CSS (no App.tsx changes) */
     .profile {
+        display: flex;
 
         text-align: right;
+        gap: 50px;
+
+        .left {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            color: var(--color-base-axa-blue);
+            gap: 5px;
+        }
+
+        .avatar {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+
+            transition: var(--animation-transition-standard);
+
+
+
+
+        }
+            .name {
+                color: var(--color-base-axa-blue);
+                font-size: 13px;
+            }
 
         .text {
 
-        cursor: pointer;
-        text-align: right;
-        color: var(--color-base-axa-blue);
-        font-weight: 900;
+            text-align: right;
+            color: var(--color-base-axa-blue);
+            font-weight: 900;
             font-size: 20px;
         }
-
 
         a {
             display: block;
@@ -103,6 +127,7 @@
             font-weight: 400;
             transition: var(--animation-transition-standard);
             transform-origin: right;
+            cursor: pointer;
 
             &:hover {
                 scale: 1.05;
@@ -110,7 +135,6 @@
 
                 color: var(--color-base-axa-blue);
             }
-
         }
     }
 }
@@ -134,6 +158,5 @@
         opacity: 1;
         translate: 0 0;
         pointer-events: all;
-
     }
 }
