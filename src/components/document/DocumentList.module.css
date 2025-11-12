@@ -6,6 +6,22 @@
 
 }
 
+.mainTitle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+
+    h5 {
+        margin: 0
+    }
+
+    .allEntriesLink {
+        color: var(--color-base-axa-blue);
+        text-decoration: underline;
+    }
+}
+
 .document-item {
   display: flex;
   align-items: center;
@@ -20,7 +36,7 @@
 .document-info {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 20px;
   flex: 1;
 }
 
@@ -47,9 +63,9 @@
 }
 
 .document-type {
-  color: #ffffff;
+  color: var(--color-ui-design-dark-grey, #2d343f);
   font-weight: 600;
-  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  background: var(--color-ui-design-muted, #d0ddeb);
   padding: 4px 8px;
   border-radius: 6px;
   font-size: 11px;
@@ -66,7 +82,8 @@
 .document-actions {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 20px;
+  padding-right: 15px;
 }
 
 .download-button {
@@ -138,10 +155,3 @@
   background: linear-gradient(135deg, #fafbfc 0%, #f8fafc 100%);
 }
 
-.document-type.pdf {
-  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
-}
-
-.document-type.jpg {
-  background: linear-gradient(135deg, #059669 0%, #047857 100%);
-}
