@@ -22,7 +22,7 @@
 .login-title {
   font-size: 3rem;
   font-weight: bold;
-  color: #1e40af;
+  color: var(--color-base-axa-blue);
   margin-bottom: 0.5rem;
 }
 

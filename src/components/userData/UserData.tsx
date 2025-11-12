@@ -55,47 +55,33 @@ export function StammdatenCard({
     <div className={`${styles.container} ${className ?? ''}`}>
       <div className={styles.headerBar}>
         <div className="headingRow">
-          <div className="headingTitle"><h4>Claim # {fallnummer}</h4></div>
+          <div className="headingTitle"><h5>Ihr Schadenfall: #1234567/0001</h5></div>
         </div>
       </div>
 
       <div className={styles.content}>
-        <div>
-          <div className={styles.personName}>{name} <span style={{marginLeft:12, fontWeight:600}} className="semiBold"></span></div>
-          <div className={styles.section}>
-            <div className={styles.sectionLabel}>Fallart</div>
-            <div className={styles.personSubtitle}>{schadensart}</div>
-          </div>
-        </div>
 
-        <div>
-          {/** detailed damage description placed between title and meta grid */}
-          {schadensbeschreibung ? (
-            <>
-              <div className={styles.sectionLabel}>Beschreibung</div>
-              <p className={styles.description}>{schadensbeschreibung}</p>
-            </>
-          ) : null}
-        </div>
+
+
 
         <div className={styles.metaGrid}>
           <div>
-            <div className={styles.metaItemLabel}><img src={calendarIcon} className={styles.icon} alt="calendar"/> <div>Submission Date</div></div>
-            <div className={styles.metaItemValue}>{formatDate(schadenstag)}</div>
+            <div className={styles.metaItemLabel}> <div>Versicherungsnehmer</div></div>
+            <div className={styles.metaItemValue}>Beat Schweizer</div>
           </div>
 
           <div>
-            <div className={styles.metaItemLabel}><img src={calendarIcon} className={styles.icon} alt="calendar"/> <div>Estimated Completion</div></div>
+            <div className={styles.metaItemLabel}> <div>Schadenereignis</div></div>
             <div className={styles.metaItemValue}>{estimatedCompletion ? formatDate(estimatedCompletion) : '—'}</div>
           </div>
 
           <div>
-            <div className={styles.metaItemLabel}><img src={mailIcon} className={styles.icon} alt="user"/> <div>Assigned To</div></div>
+            <div className={styles.metaItemLabel}> <div>Assigned To</div></div>
             <div className={styles.metaItemValue}>{assignedTo ?? '—'}</div>
           </div>
 
           <div>
-            <div className={styles.metaItemLabel}><img src={mailIcon} className={styles.icon} alt="mail"/> <div>Contact Email</div></div>
+            <div className={styles.metaItemLabel}> <div>Contact Email</div></div>
             <div className={styles.metaItemValue}>{kontakt ?? '—'}</div>
           </div>
         </div>

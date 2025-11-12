@@ -82,29 +82,44 @@
     }
     /* re-add profile avatar in the right corner purely via CSS (no App.tsx changes) */
     .profile {
-        position: absolute;
-        right: var(--spacing-base-5);
-        top: 50%;
-        transform: translateY(-50%);
-        width: 36px;
-        height: 36px;
-        border-radius: 50%;
-        background: var(--color-base-axa-blue);
-        color: white;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: 700;
+
+        text-align: right;
+
+        .text {
+
         cursor: pointer;
-        box-shadow: var(--shadow-box-default);
+        text-align: right;
+        color: var(--color-base-axa-blue);
+        font-weight: 900;
+            font-size: 20px;
+        }
+
+
+        a {
+            display: block;
+            color: var(--color-base-axa-blue);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            font-weight: 400;
+            transition: var(--animation-transition-standard);
+            transform-origin: right;
+
+            &:hover {
+                scale: 1.05;
+                text-decoration: underline;
+
+                color: var(--color-base-axa-blue);
+            }
+
+        }
     }
 }
 
 .stammdaten {
     pointer-events: none;
-    position: fixed;
-    top: 65px;
-    right: 60px;
+    position: absolute;
+    top: 75px;
+    right: 160px;
     max-width: 80%;
     opacity: 0;
     translate: 10px -10px;

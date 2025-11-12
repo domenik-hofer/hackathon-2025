@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useClaims } from '../../context/ClaimsContext';
 import LoginFormStyles from './LoginForm.module.css';
 import { usePage } from '../../context/PageContext';
+import { Button } from '../button/Button';
 
 const LoginForm: React.FC = () => {
     const [claimNumber, setClaimNumber] = useState('BLD-2023-001');
@@ -13,25 +14,25 @@ const LoginForm: React.FC = () => {
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         if (!claimNumber || !lastName) {
-            setError('Please enter both claim number and last name');
+            setError('Alle Felder müssen ausgefüllt sein');
             return;
         }
         const claimId = validateClaim(claimNumber, lastName);
         if (claimId) {
             setCurrentClaim(claimId);
-            setActivePage(1)
+            setActivePage(1);
             console.log('Login successful, claim ID:', claimId);
         } else {
-            setError('Invalid claim number or last name');
+            setError('Fallnummer oder Nachname nicht gefunden');
         }
     };
     return (
         <div className={LoginFormStyles['login-container']}>
-            <h2 className={LoginFormStyles['login-title']}>Check Your Claim Status</h2>
+            <h2 className={LoginFormStyles['login-title']}>Schadenfall Status</h2>
             <form onSubmit={handleSubmit}>
                 <div className={LoginFormStyles['form-group']}>
                     <label htmlFor='claimNumber' className={LoginFormStyles['form-label']}>
-                        Claim Number
+                        Fallnummer
                     </label>
                     <input
                         id='claimNumber'
@@ -44,7 +45,7 @@ const LoginForm: React.FC = () => {
                 </div>
                 <div className={LoginFormStyles['form-group']}>
                     <label htmlFor='lastName' className={LoginFormStyles['form-label']}>
-                        Last Name
+                        Nachname
                     </label>
                     <input
                         id='lastName'
@@ -57,19 +58,31 @@ const LoginForm: React.FC = () => {
                 </div>
                 {error && (
                     <div className={LoginFormStyles['error-message']}>
-                        <p className={LoginFormStyles['error-icon']}>⚠️</p>
+                        <svg
+                            className={LoginFormStyles['error-icon']}
+                            width='24'
+                            height='24'
+                            viewBox='0 0 24 24'
+                            xmlns='http://www.w3.org/2000/svg'
+                        >
+                            <path
+                                fill-rule='evenodd'
+                                clip-rule='evenodd'
+                                d='M1 21.5L12 2.5L23 21.5H1ZM19.53 19.5L12 6.49L4.47 19.5H19.53ZM11 16.5V18.5H13V16.5H11ZM11 10.5H13V14.5H11V10.5Z'
+                            />
+                        </svg>
+
                         <span className={LoginFormStyles['error-text']}>{error}</span>
                     </div>
                 )}
                 <div className={LoginFormStyles['form-group']}>
-                  <button type='submit' className={`${LoginFormStyles['submit-button']} ${LoginFormStyles['form-input']}`}>
-                    Check Status
-                  </button>
+                    <Button
+                        type='submit'
+                        className={`${LoginFormStyles['submit-button']} ${LoginFormStyles['form-input']}`}
+                        title='Status abfragen'
+                    />
                 </div>
             </form>
-            <p className={LoginFormStyles['login-info']}>
-                Enter your claim number and last name to check the status of your building insurance claim.
-            </p>
         </div>
     );
 };

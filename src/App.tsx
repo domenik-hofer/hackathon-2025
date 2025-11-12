@@ -8,11 +8,7 @@ import ExamplePage from './pages/example/Example.page';
 import LoginPage from './pages/login/LoginPage';
 import { combineClasses } from './utils/ClassNameUtil';
 import claimstrackPng from './assets/icons/claimstrack.png';
-import {
-    buildStammdatenFromClaimAndPerson,
-    claimsMeta,
-    persons,
-} from './utils/mockData';
+import { buildStammdatenFromClaimAndPerson, claimsMeta, persons } from './utils/mockData';
 
 // (timelineItems available from mocks; not used directly in App)
 import { Chatbot } from './components/chatbot/Chatbot';
@@ -24,13 +20,8 @@ export function App() {
     const profileRef = useRef<HTMLDivElement | null>(null);
 
     const claim = claimsMeta[0];
-    const person = claim
-        ? persons.find((p) => p.id === claim.personId) ?? persons[0]
-        : persons[0];
-    const stammdatenBasic =
-        claim && person
-            ? buildStammdatenFromClaimAndPerson(claim, person)
-            : undefined;
+    const person = claim ? (persons.find(p => p.id === claim.personId) ?? persons[0]) : persons[0];
+    const stammdatenBasic = claim && person ? buildStammdatenFromClaimAndPerson(claim, person) : undefined;
     const stammdatenDetailed =
         claim && person
             ? buildStammdatenFromClaimAndPerson(claim, person, {
@@ -59,14 +50,16 @@ export function App() {
                 {activePage !== 0 && (
                     <div className={c('navBar')}>
                         <div className={c('logo')} onClick={() => setActivePage(0)}>
-                            <img src={claimstrackPng} alt='Claimstrack Logo' width={32} height={32} />{' '} <b>ClaimsTrack</b>
+                            <img src={claimstrackPng} alt='Claimstrack Logo' width={32} height={32} />{' '}
+                            <b>ClaimsTrack</b>
                         </div>
                         <div
                             className={c('profile')}
                             ref={profileRef}
                             onClick={() => setShowStammdaten(!showStammdaten)}
                         >
-                            M
+                            <div className={c('text')}>Ihr Schadenfall: #1234567/0001</div>
+                            <a>mehr anzeigen...</a>
                         </div>
                     </div>
                 )}
@@ -77,19 +70,13 @@ export function App() {
                 {activePage === 2 && <ExamplePage />}
             </div>
             {stammdatenBasic ? (
-                <StammdatenCard
-                    className={c('stammdaten', showStammdaten && 'visible')}
-                    {...stammdatenBasic}
-                />
+                <StammdatenCard className={c('stammdaten', showStammdaten && 'visible')} {...stammdatenBasic} />
             ) : null}
 
             {activePage != 0 && <Chatbot />}
             <div ref={stamRef}>
                 {stammdatenDetailed ? (
-                    <StammdatenCard
-                        className={c('stammdaten', showStammdaten && 'visible')}
-                        {...stammdatenDetailed}
-                    />
+                    <StammdatenCard className={c('stammdaten', showStammdaten && 'visible')} {...stammdatenDetailed} />
                 ) : null}
             </div>
 

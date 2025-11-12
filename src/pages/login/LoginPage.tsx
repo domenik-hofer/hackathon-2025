@@ -17,7 +17,7 @@ const LoginPage: React.FC = () => {
         <LoginForm />
       </main>
       <footer className={LoginPageStyles["login-footer"]}>
-        <p>© 2023 ClaimsTrack. Alle Rechte vorbehalten.</p>
+        <p>© 2025 Hacktracktive Seven. AXA Hackathon 2025.</p>
       </footer>
     </div>
   )

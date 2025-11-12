@@ -3,7 +3,7 @@
     padding: 2rem;
     border-radius: 0.5rem;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    max-width: 400px;
+    max-width: 450px;
     width: 100%;
     margin: 0 auto;
 }
@@ -51,11 +51,15 @@
     border-radius: 0.375rem;
     display: flex;
     align-items: center;
+    justify-content: center;
+    gap: 10px;
 }
 
 .error-icon {
-    margin-right: 0.5rem;
     font-size: 1.2rem;
+    margin-bottom: 0;
+    fill: #991b1b;
+
 }
 
 .error-text {
@@ -63,20 +67,7 @@
 }
 
 .submit-button {
-    width: 100%;
-    background-color: #2563eb;
-    color: #fff;
-    font-weight: 500;
-    padding: 0.5rem 0.75rem;
-    border: none;
-    border-radius: 0.375rem;
-    cursor: pointer;
-    transition: background-color 0.2s;
-    box-sizing: border-box;
-}
-
-.submit-button:hover {
-    background-color: #1d4ed8;
+  transition: var(--animation-transition-standard);
 }
 
 .login-info {
