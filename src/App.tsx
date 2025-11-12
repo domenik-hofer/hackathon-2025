@@ -77,9 +77,7 @@ export function App() {
                             </div>
                             <div className={c('right')}>
                                 <div className={c('text')}>Ihr Schadenfall: #1234567/0001</div>
-                                {isLoggedIn ? (<a onClick={() => setShowStammdaten(!showStammdaten)}>mehr anzeigen...</a>) : (
-                                    <a onClick={() => setIsLoggedIn(true)}>Einloggen für mehr Details</a>
-                                ) }
+                                <a onClick={() => setShowStammdaten(!showStammdaten)}>mehr anzeigen...</a>
                             </div>
                         </div>
                     </div>
@@ -90,13 +88,13 @@ export function App() {
                 {activePage === 1 && <HomePage />}
                 {activePage === 2 && <ExamplePage />}
             </div>
-            {stammdatenBasic && isLoggedIn ? (
+            {stammdatenBasic  ? (
                 <StammdatenCard className={c('stammdaten', showStammdaten && 'visible')} {...stammdatenBasic} />
             ) : null}
 
             {activePage != 0 && <Chatbot />}
             <div ref={stamRef}>
-                {stammdatenDetailed && isLoggedIn ? (
+                {stammdatenDetailed  ? (
                     <StammdatenCard className={c('stammdaten', showStammdaten && 'visible')} {...stammdatenDetailed} />
                 ) : null}
             </div>

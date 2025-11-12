@@ -60,37 +60,42 @@ export function StammdatenCard({
                 <div className='headingRow'>
                     <div className={styles.headingTitle}>
                         <h5>Ihr Schadenfall: #1234567/0001</h5>
-                        <div className={styles.logout} onClick={() => setIsLoggedIn(false)}>Logout</div>{' '}
+                        <div className={styles.logout} onClick={() => setIsLoggedIn(!isLoggedIn)}>
+                            {isLoggedIn ? 'Logout' : 'Login'}
+                        </div>{' '}
                     </div>
                 </div>
             </div>
 
             <div className={styles.content}>
                 <div className={styles.metaGrid}>
-                    <div>
-                        <div className={styles.metaItemLabel}>
-                            {' '}
-                            <div>Versicherungsnehmer</div>
-                        </div>
-                        <div className={styles.metaItemValue}>Beat Schweizer</div>
-                    </div>
+                    {isLoggedIn && (
+                        <>
+                            <div>
+                                <div className={styles.metaItemLabel}>
+                                    {' '}
+                                    <div>Versicherungsnehmer</div>
+                                </div>
+                                <div className={styles.metaItemValue}>Beat Schweizer</div>
+                            </div>
 
-                    <div>
-                        <div className={styles.metaItemLabel}>
-                            {' '}
-                            <div>Schadenereignis</div>
-                        </div>
-                        <div className={styles.metaItemValue}>Leitungsbruch vom 01. Oktober 2025</div>
-                    </div>
+                            <div>
+                                <div className={styles.metaItemLabel}>
+                                    {' '}
+                                    <div>Schadenereignis</div>
+                                </div>
+                                <div className={styles.metaItemValue}>Leitungsbruch vom 01. Oktober 2025</div>
+                            </div>
 
-                    <div>
-                        <div className={styles.metaItemLabel}>
-                            {' '}
-                            <div>Schadenort</div>
-                        </div>
-                        <div className={styles.metaItemValue}>Pionierstr. 33, 8400 Winterthur, Whg. 3.OG</div>
-                    </div>
-
+                            <div>
+                                <div className={styles.metaItemLabel}>
+                                    {' '}
+                                    <div>Schadenort</div>
+                                </div>
+                                <div className={styles.metaItemValue}>Pionierstr. 33, 8400 Winterthur, Whg. 3.OG</div>
+                            </div>
+                        </>
+                    )}
                     <div className={styles.contact}>
                         <div className={styles.title}>Team Schadenservice</div>
                         <div className={styles.phone}>0800 234 56 78</div>

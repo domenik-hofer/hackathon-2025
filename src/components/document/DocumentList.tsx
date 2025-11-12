@@ -108,7 +108,10 @@ export function DocumentList({ documents }: DocumentListProps) {
                     </div>
                 </div>
             ))}
+            <button className={c('download-button')} style={{textDecoration: 'underline'}}>
+                Weiteres Dokument Hochladen
 
+            </button>
 
         </div>
     );
