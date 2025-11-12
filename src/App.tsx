@@ -43,6 +43,8 @@ export function App() {
         return () => document.removeEventListener('click', onDocClick);
     }, [showStammdaten]);
     const c = combineClasses({ styles: AppStyles });
+    const { isLoggedIn, setIsLoggedIn } = usePage();
+
 
     return (
         <div className={c('page')}>
@@ -56,7 +58,7 @@ export function App() {
                         <div
                             className={c('profile')}
                             ref={profileRef}
-                            onClick={() => setShowStammdaten(!showStammdaten)}
+
                         >
                             <div className={c('left')}>
                                 <div className={c('avatar')}>
@@ -75,7 +77,9 @@ export function App() {
                             </div>
                             <div className={c('right')}>
                                 <div className={c('text')}>Ihr Schadenfall: #1234567/0001</div>
-                                <a>mehr anzeigen...</a>
+                                {isLoggedIn ? (<a onClick={() => setShowStammdaten(!showStammdaten)}>mehr anzeigen...</a>) : (
+                                    <a onClick={() => setIsLoggedIn(true)}>Einloggen für mehr Details</a>
+                                ) }
                             </div>
                         </div>
                     </div>
@@ -86,13 +90,13 @@ export function App() {
                 {activePage === 1 && <HomePage />}
                 {activePage === 2 && <ExamplePage />}
             </div>
-            {stammdatenBasic ? (
+            {stammdatenBasic && isLoggedIn ? (
                 <StammdatenCard className={c('stammdaten', showStammdaten && 'visible')} {...stammdatenBasic} />
             ) : null}
 
             {activePage != 0 && <Chatbot />}
             <div ref={stamRef}>
-                {stammdatenDetailed ? (
+                {stammdatenDetailed && isLoggedIn ? (
                     <StammdatenCard className={c('stammdaten', showStammdaten && 'visible')} {...stammdatenDetailed} />
                 ) : null}
             </div>

@@ -1,5 +1,6 @@
 import { combineClasses } from '../../utils/ClassNameUtil';
 import TimelineStyles from './Timeline.module.css';
+import {usePage} from '../../context/PageContext';
 
 const c = combineClasses({ styles: TimelineStyles });
 
@@ -14,9 +15,13 @@ export interface TimelineItem {
 
 export interface TimelineProps {
     items: TimelineItem[];
+    showAll?: boolean;
 }
 
-export function Timeline({ items }: TimelineProps) {
+export function Timeline({ items, showAll = false }: TimelineProps) {
+    const maxVisible = showAll ? items.length : 3;
+    const { isLoggedIn, setIsLoggedIn } = usePage();
+
     // Parse dates in either 'YYYY-MM-DD' or 'DD.MM.YYYY' and optional time like 'HH:mm' or 'HH:mm Uhr'
     const toTimestamp = (dateStr: string, timeStr: string): number => {
         if (!dateStr) return 0;
@@ -55,9 +60,9 @@ export function Timeline({ items }: TimelineProps) {
     const sorted = [...items].sort((a, b) => {
         const tb = toTimestamp(b.date, b.time);
         const ta = toTimestamp(a.date, a.time);
-        if (tb !== ta) return tb - ta;
+        if (tb !== ta) return ta - tb;
         // tie-breaker: higher id first
-        return b.id - a.id;
+        return a.id - b.id;
     });
 
     return (
@@ -65,23 +70,23 @@ export function Timeline({ items }: TimelineProps) {
             <div className={c('mainTitle')}>
                 <h5>Bisheriger Verlauf</h5>
 
-                <a
+                {isLoggedIn && (<a
                     className={c('allEntriesLink')}
                     data-bs-toggle='offcanvas'
                     data-bs-target='#offcanvasWithBothOptions'
                     aria-controls='offcanvasWithBothOptions'
                 >
                     Gesamter Verlauf
-                </a>
+                </a>)}
             </div>
 
             {sorted.map((item, index) => (
                 <>
-                    {index < 3 && (
+                    {index < maxVisible && (
                         <div key={item.id} className={c('timelineItem', 'small')}>
                             <div className={c('iconContainer')}>
                                 <div className={c('icon')}></div>
-                                {index < sorted.length - sorted.length + 2 && (
+                                {index < sorted.length - sorted.length + (maxVisible - 1) && (
                                     <div className={c('connectorWrapper')}>
 
                                         <div className={c('connector')} />

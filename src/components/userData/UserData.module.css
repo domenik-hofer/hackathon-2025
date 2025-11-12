@@ -83,12 +83,17 @@
     gap: var(--spacing-base-4);
 }
 
-.headerBar .headingTitle {
-    font: var(--typography-secondary-h4);
-    color: white;
-    font-weight: 700;
+.headingTitle {
+    display: flex;
+    justify-content: space-between;
 
+.logout {
+    &:hover{
+        text-decoration: underline;
+    }
 }
+}
+
 
 .headerBar .headingSub {
     color: rgba(255, 255, 255, 0.9);

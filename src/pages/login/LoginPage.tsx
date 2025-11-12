@@ -15,7 +15,7 @@ const LoginPage: React.FC = () => {
             Willkommen zu ClaimsTrack
           </h1>
           <p className={LoginPageStyles["login-description"]}>
-            Verfolgen Sie den Status Ihrer Gebäudeversicherungsansprüche ganz einfach
+              Verfolgen Sie den Status Ihres Schadenfalls
           </p>
         </div>
         <LoginForm />

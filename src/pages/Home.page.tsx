@@ -4,6 +4,7 @@ import { Card } from '../components/card/Card';
 import { Timeline } from '../components/timeline/Timeline';
 import { DocumentList, Document } from '../components/document/DocumentList';
 import { Status } from '../components/status/Status';
+
 import {
     buildDocumentsFromClaim,
     buildTimelineItemsFromEvents,
@@ -11,9 +12,11 @@ import {
     claimsMeta,
     mockClaims,
 } from '../utils/mockData';
+import { usePage } from '../context/PageContext';
 
 export default function HomePage() {
     const c = combineClasses({ styles: HomePageStyles });
+    const { isLoggedIn, setIsLoggedIn } = usePage();
 
     const claim = claimsMeta[0];
     const fallbackClaim = mockClaims[0];
@@ -29,10 +32,10 @@ export default function HomePage() {
     return (
         <>
             <div className={c('layout')}>
-                <div className={c('timeline')}>
+                <div className={c('timeline', !isLoggedIn && 'tall')}>
                     <Card>
                         <Card.Body>
-                            <Timeline items={timelineItems} />
+                            <Timeline items={timelineItems} showAll={!isLoggedIn} />
                         </Card.Body>
                     </Card>
                 </div>
@@ -44,13 +47,13 @@ export default function HomePage() {
                         </Card.Body>
                     </Card>
                 </div>
-                <div className={c('documents')}>
+                {isLoggedIn && (<div className={c('documents')}>
                     <Card>
                         <Card.Body>
                             <DocumentList documents={documents} />
                         </Card.Body>
                     </Card>
-                </div>
+                </div>)}
             </div>
         </>
     );

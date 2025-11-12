@@ -3,6 +3,8 @@ import { createContext, useContext, useState, ReactNode } from 'react';
 interface PageContextType {
     activePage: number;
     setActivePage: (page: number) => void;
+    isLoggedIn: boolean;
+    setIsLoggedIn: (isLoggedIn: boolean) => void;
 }
 
 const PageContext = createContext<PageContextType | undefined>(undefined);
@@ -17,8 +19,9 @@ export const usePage = () => {
 
 export const PageProvider = ({ children }: { children: ReactNode }) => {
     const [activePage, setActivePage] = useState(0);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
     return (
-        <PageContext.Provider value={{ activePage, setActivePage }}>
+        <PageContext.Provider value={{ activePage, setActivePage, isLoggedIn, setIsLoggedIn }}>
             {children}
         </PageContext.Provider>
     );
