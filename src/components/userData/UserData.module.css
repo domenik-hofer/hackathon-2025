@@ -131,10 +131,14 @@
 }
 
 .metaGrid {
-    margin-top: var(--spacing-base-5);
+
     display: grid;
     grid-template-columns: 1fr;
     gap: var(--spacing-base-5);
+
+    & >:nth-child(3) {
+        grid-column: span 2;
+    }
 }
 
 @media (min-width: 640px) {
@@ -155,6 +159,17 @@
     margin-top: var(--spacing-base-1);
     font: var(--typography-text-regular);
     font-weight: 600;
+}
+
+.title {
+    font-size: var(--typography-text-regular);
+}
+
+.mail {
+    color: var(--color-ui-design-axa-blue);
+    text-decoration: underline;
+    line-height: 1;
+    cursor: pointer;
 }
 
 .body {

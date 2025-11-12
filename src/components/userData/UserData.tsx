@@ -72,18 +72,27 @@ export function StammdatenCard({
 
           <div>
             <div className={styles.metaItemLabel}> <div>Schadenereignis</div></div>
-            <div className={styles.metaItemValue}>{estimatedCompletion ? formatDate(estimatedCompletion) : '—'}</div>
+            <div className={styles.metaItemValue}>Leitungsbruch vom 01. Oktober 2025</div>
           </div>
 
           <div>
-            <div className={styles.metaItemLabel}> <div>Assigned To</div></div>
-            <div className={styles.metaItemValue}>{assignedTo ?? '—'}</div>
+            <div className={styles.metaItemLabel}> <div>Schadenort</div></div>
+            <div className={styles.metaItemValue}>Pionierstr. 33, 8400 Winterthur, Whg. 3.OG</div>
           </div>
 
-          <div>
-            <div className={styles.metaItemLabel}> <div>Contact Email</div></div>
-            <div className={styles.metaItemValue}>{kontakt ?? '—'}</div>
-          </div>
+            <div className={styles.contact}>
+                <div className={styles.title}>
+                    Team Schadenservice
+                </div>
+                <div className={styles.phone}>
+                    0800 234 56 78
+                </div>
+                <div className={styles.mail}>
+                    schaden@axa.ch
+                </div>
+            </div>
+
+
         </div>
       </div>
     </div>
