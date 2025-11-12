@@ -89,7 +89,6 @@ export function App() {
             {stammdatenBasic ? (
                 <StammdatenCard className={c('stammdaten', showStammdaten && 'visible')} {...stammdatenBasic} />
             ) : null}
-
             {activePage != 0 && <Chatbot />}
             <div ref={stamRef}>
                 {stammdatenDetailed ? (
