@@ -30,7 +30,7 @@ export function DocumentList({ documents }: DocumentListProps) {
     return (
         <div className={c('document-list')}>
             <div className={c('mainTitle')}>
-                <h5>Eingereichte Dokumente</h5>
+                <h5>Ihre Dokumente</h5>
 
                 <a
                     className={c('allEntriesLink')}

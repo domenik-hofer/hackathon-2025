@@ -19,6 +19,7 @@
         display: flex;
         gap: 5px;
         position: relative;
+        transition: var(--animation-transition-standard);
 
 
         &:nth-child(1) {
@@ -59,6 +60,7 @@
             left: 100%;
             background: var(--arrow-color);
             clip-path: polygon(100% 50%, 0 0, 0 100%);
+            transition: var(--animation-transition-standard);
         }
 
         &:before {
