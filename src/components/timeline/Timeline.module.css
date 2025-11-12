@@ -26,9 +26,9 @@
 
     /* Use a CSS variable so connector height matches spacing dynamically */
 .timelineItem {
-  --connector-gap: 1.5rem;
+  --connector-gap: 0.5rem;
   display: flex;
-  margin-bottom: var(--connector-gap);
+
     align-items: start;
 }
 
@@ -82,7 +82,6 @@ translate: 0 5px;
   flex-direction: column;
   align-items: center;
   width: 2px; /* aligns with connector width */
-  margin-top: 4px; /* small gap below circle icon */
   position: relative;
 }
 
@@ -95,7 +94,7 @@ translate: 0 5px;
 
 .connector {
   width: 2px;
-  height: var(--connector-gap);
+  height: 35px;
   background-color: var(--color-greyscale-5);
   flex: 0 0 auto;
 }

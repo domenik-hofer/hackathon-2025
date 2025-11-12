@@ -1,7 +1,7 @@
 @import './axa-design-tokens.css';
 
 :root {
-    font-size: 16px;
+    font-size: 18px;
     /*noinspection CssUnknownProperty*/
     interpolate-size: allow-keywords;
     --color-base-taxplatform-blue: #96ccff;

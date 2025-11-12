@@ -125,7 +125,7 @@ export const claimDocuments: ClaimDocument[] = [
     claimId: 'claim-001',
     name: 'Schadensmeldung Formular',
     type: 'PDF',
-    uploadDate: '2023-10-15',
+    uploadDate: '2025-10-15',
     status: 'approved',
   },
   {
@@ -133,7 +133,7 @@ export const claimDocuments: ClaimDocument[] = [
     claimId: 'claim-001',
     name: 'Fotos vom Schaden',
     type: 'JPG',
-    uploadDate: '2023-10-15',
+    uploadDate: '2025-10-15',
     status: 'approved',
   },
   {
@@ -141,7 +141,7 @@ export const claimDocuments: ClaimDocument[] = [
     claimId: 'claim-001',
     name: 'Kostenvoranschlag Handwerker',
     type: 'PDF',
-    uploadDate: '2023-10-20',
+    uploadDate: '2025-10-20',
     status: 'pending',
   },
 ]
