@@ -40,15 +40,20 @@
     opacity: 0;
     translate: 10px 10px;
     transition: var(--animation-transition-standard);
+    pointer-events: none;
 
     @starting-style {
         opacity: 0;
         translate: 0 0;
+        pointer-events: none;
+
     }
 
     &.visible{
         opacity: 1;
         translate: 0 0;
+        pointer-events: all;
+
     }
 
     .messages {
