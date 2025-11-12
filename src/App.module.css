@@ -2,7 +2,7 @@
     min-height: 100vh;
 
     .pageBody {
-        /*padding: var(--spacing-base-9);*/
+        padding: var(--spacing-base-9);
         position: relative;
     }
 }
@@ -15,7 +15,6 @@
     position: relative;
     z-index: 1;
     box-shadow: var(--shadow-box-default);
-    min-height: 100px;
 
     .logo {
         display: flex;
@@ -26,7 +25,7 @@
         transition: var(--animation-transition-standard);
 
         &:hover {
-            scale: 1.05;
+            scale: 1.05
         }
 
         h5 {
@@ -69,71 +68,16 @@
             align-items: center;
             padding: 0 var(--spacing-base-5);
 
+
             &.active {
                 font-weight: 700;
             }
 
             &:hover,
-            :not(:has(:hover)) &.active {
+            :not(:has(:hover)) &.active{
                 text-decoration: none;
                 anchor-name: --hovered;
             }
         }
-    }
-    /* re-add profile avatar in the right corner purely via CSS (no App.tsx changes) */
-    .profile {
-
-        text-align: right;
-
-        .text {
-
-        cursor: pointer;
-        text-align: right;
-        color: var(--color-base-axa-blue);
-        font-weight: 900;
-            font-size: 20px;
-        }
-
-
-        a {
-            display: block;
-            color: var(--color-base-axa-blue);
-            text-decoration: underline;
-            text-underline-offset: 2px;
-            font-weight: 400;
-            transition: var(--animation-transition-standard);
-            transform-origin: right;
-
-            &:hover {
-                scale: 1.05;
-                text-decoration: underline;
-
-                color: var(--color-base-axa-blue);
-            }
-
-        }
-    }
-}
-
-.stammdaten {
-    pointer-events: none;
-    position: absolute;
-    top: 75px;
-    right: 160px;
-    max-width: 80%;
-    opacity: 0;
-    translate: 10px -10px;
-    transition: all 0.3s ease-in-out;
-
-    @starting-style {
-        opacity: 0;
-        translate: 10px -10px;
-    }
-
-    &.visible {
-        opacity: 1;
-        translate: 0 0;
-        pointer-events: all;
-
     }
 }

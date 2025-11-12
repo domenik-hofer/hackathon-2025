@@ -1,55 +1,36 @@
 import { combineClasses } from '../utils/ClassNameUtil';
 import HomePageStyles from './Home.module.css';
 import { Card } from '../components/card/Card';
-import { Timeline } from '../components/timeline/Timeline';
-import { DocumentList, Document } from '../components/document/DocumentList';
-import { Status } from '../components/status/Status';
-import {
-    buildDocumentsFromClaim,
-    buildTimelineItemsFromEvents,
-    claimEvents,
-    claimsMeta,
-    mockClaims,
-} from '../utils/mockData';
+import {UserData} from '../components/userData/UserData';
 
 export default function HomePage() {
     const c = combineClasses({ styles: HomePageStyles });
-
-    const claim = claimsMeta[0];
-    const fallbackClaim = mockClaims[0];
-    const fullClaim = claim
-        ? mockClaims.find((c) => c.id === claim.id) ?? fallbackClaim
-        : fallbackClaim;
-    const relevantEvents = claim
-        ? claimEvents.filter((evt) => evt.claimId === claim.id)
-        : claimEvents;
-    const timelineItems = buildTimelineItemsFromEvents(relevantEvents);
-    const documents: Document[] = buildDocumentsFromClaim(fullClaim);
 
     return (
         <>
             <div className={c('layout')}>
                 <div className={c('timeline')}>
+                <Card>
+                    <Card.Body>
+                        Timeline
+                    </Card.Body>
+                </Card>
+                </div>
+                <div className={c('timeline')}>
                     <Card>
                         <Card.Body>
-                            <Timeline items={timelineItems} />
+                            Timeline
                         </Card.Body>
                     </Card>
                 </div>
-
-                <div className={c('status')}>
-                    <Card>
-                        <Card.Body>
-                            <Status />
-                        </Card.Body>
-                    </Card>
-                </div>
-                <div className={c('documents')}>
-                    <Card>
-                        <Card.Body>
-                            <DocumentList documents={documents} />
-                        </Card.Body>
-                    </Card>
+                <div>
+                    <UserData>
+            name="Max Mustermann"
+  fallnummer="2023-1234567"
+  schadensart="Wasserschaden"
+  schadenstag="10.06.2023"  // oder new Date(2023,5,10)
+  kontakt="mail@maxmustermann.de"
+                    </UserData>
                 </div>
             </div>
         </>
