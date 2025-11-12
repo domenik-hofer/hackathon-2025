@@ -99,20 +99,20 @@ export const getStatusColor = (status: Claim['status']) => {
 export const persons: Person[] = [
   {
     id: 'person-001',
-    fullName: 'Max Mustermann',
-    email: 'mail@maxmustermann.de',
-    phone: '555-123-4567',
+    fullName: 'Beat Schweizer',
+    email: 'beat@schweizer.ch',
+    phone: '0799990101',
   },
 ]
 
 export const claimsMeta: NormalizedClaimMeta[] = [
   {
     id: 'claim-001',
-    claimNumber: 'BLD-2023-001',
+    claimNumber: '1234567/0001',
     status: 'in_review',
-    submissionDate: '2023-10-15',
-    estimatedCompletion: '2023-11-15',
-    description: 'Wasserschaden durch Rohrbruch in der Küche',
+    submissionDate: '2025-10-01',
+    estimatedCompletion: '2025-11-31',
+    description: 'Wasserleitungsbruch',
     personId: 'person-001',
     password: 'secure123',
     assignedTo: 'Herr Müller',
@@ -125,7 +125,7 @@ export const claimDocuments: ClaimDocument[] = [
     claimId: 'claim-001',
     name: 'Schadensmeldung Formular',
     type: 'PDF',
-    uploadDate: '2023-10-15',
+    uploadDate: '2025-10-15',
     status: 'approved',
   },
   {
@@ -133,7 +133,7 @@ export const claimDocuments: ClaimDocument[] = [
     claimId: 'claim-001',
     name: 'Fotos vom Schaden',
     type: 'JPG',
-    uploadDate: '2023-10-15',
+    uploadDate: '2025-10-15',
     status: 'approved',
   },
   {
@@ -141,7 +141,7 @@ export const claimDocuments: ClaimDocument[] = [
     claimId: 'claim-001',
     name: 'Kostenvoranschlag Handwerker',
     type: 'PDF',
-    uploadDate: '2023-10-20',
+    uploadDate: '2025-10-20',
     status: 'pending',
   },
 ]
@@ -150,7 +150,7 @@ export const claimEvents: ClaimEvent[] = [
   {
     id: 'evt-001',
     claimId: 'claim-001',
-    date: '2023-10-15',
+    date: '2025-10-15',
     time: '09:23',
     type: 'submitted',
     message: 'Schadensmeldung erfolgreich eingereicht',
@@ -159,7 +159,7 @@ export const claimEvents: ClaimEvent[] = [
   {
     id: 'evt-002',
     claimId: 'claim-001',
-    date: '2023-10-17',
+    date: '2025-10-17',
     time: '10:05',
     type: 'assigned',
     message: 'Sachbearbeiter Herr Müller wurde zugewiesen',
@@ -168,7 +168,7 @@ export const claimEvents: ClaimEvent[] = [
   {
     id: 'evt-003',
     claimId: 'claim-001',
-    date: '2023-10-22',
+    date: '2025-10-22',
     time: '15:40',
     type: 'assessment_complete',
     message: 'Erste Bewertung abgeschlossen. Wartet auf Prüfung des Kostenvoranschlags.',
