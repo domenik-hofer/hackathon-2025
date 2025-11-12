@@ -57,13 +57,7 @@ export function Timeline({ items, showAll = false }: TimelineProps) {
     };
 
     // Sort descending (newest first) without mutating input
-    const sorted = [...items].sort((a, b) => {
-        const tb = toTimestamp(b.date, b.time);
-        const ta = toTimestamp(a.date, a.time);
-        if (tb !== ta) return ta - tb;
-        // tie-breaker: higher id first
-        return a.id - b.id;
-    });
+    const sorted = items;
 
     return (
         <div className={c('timeline')}>

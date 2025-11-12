@@ -147,30 +147,26 @@ export const claimDocuments: ClaimDocument[] = [
 ]
 
 export const claimEvents: ClaimEvent[] = [
-  {
-      claimId: 'claim-001',
-      date: '2025-10-11',
-      title: 'Schadenmeldung eingegangen',
-  },
     {
         claimId: 'claim-001',
-        date: '2025-10-12',
-        title: 'Prüfung begonnen',
-    },
-    {
-        claimId: 'claim-001',
-        date: '2025-10-12',
-        title: 'Bericht Gutachten angefordert',
+        date: '2025-10-15',
+        title: 'Reparaturrechnung erhalten',
     },
     {
         claimId: 'claim-001',
         date: '2025-10-13',
         title: 'Reparaturrechnung hochgeladen',
     },
+
+
+
+
+
+
     {
         claimId: 'claim-001',
-        date: '2025-10-15',
-        title: 'Reparaturrechnung erhalten',
+        date: '2025-10-12',
+        title: 'Dokumente abschliessend geprüft',
     },
     {
         claimId: 'claim-001',
@@ -180,7 +176,17 @@ export const claimEvents: ClaimEvent[] = [
     {
         claimId: 'claim-001',
         date: '2025-10-12',
-        title: 'Dokumente abschliessend geprüft',
+        title: 'Bericht Gutachten angefordert',
+    },
+    {
+        claimId: 'claim-001',
+        date: '2025-10-12',
+        title: 'Prüfung begonnen',
+    },
+    {
+        claimId: 'claim-001',
+        date: '2025-10-11',
+        title: 'Schadenmeldung eingegangen',
     },
 
     ]
