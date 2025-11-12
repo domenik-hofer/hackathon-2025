@@ -3,6 +3,7 @@ import { usePage } from './context/PageContext';
 
 import { useState, useRef, useEffect } from 'react';
 import { StammdatenCard } from './components/userData/UserData';
+import { Button } from './components/button/Button';
 import HomePage from './pages/Home.page';
 import ExamplePage from './pages/example/Example.page';
 import LoginPage from './pages/login/LoginPage';
@@ -15,6 +16,7 @@ import { Chatbot } from './components/chatbot/Chatbot';
 
 export function App() {
     const { activePage, setActivePage } = usePage();
+    const [showLoginPrompt, setShowLoginPrompt] = useState<boolean>(true);
     const [showStammdaten, setShowStammdaten] = useState(false);
     const stamRef = useRef<HTMLDivElement | null>(null);
     const profileRef = useRef<HTMLDivElement | null>(null);
@@ -25,8 +27,8 @@ export function App() {
     const stammdatenDetailed =
         claim && person
             ? buildStammdatenFromClaimAndPerson(claim, person, {
-                  includeDescription: true,
-              })
+                includeDescription: true,
+            })
             : undefined;
 
     useEffect(() => {
@@ -45,7 +47,7 @@ export function App() {
     const c = combineClasses({ styles: AppStyles });
 
     return (
-        <div className={c('page')}>
+        <div className={c('page')} data-login-prompt={showLoginPrompt ? 'true' : 'false'}>
             <div className={c('pageHeader')}>
                 {activePage !== 0 && (
                     <div className={c('navBar')}>
@@ -93,12 +95,30 @@ export function App() {
             {activePage != 0 && <Chatbot />}
             <div ref={stamRef}>
                 {stammdatenDetailed ? (
-                    <StammdatenCard className={c('stammdaten', showStammdaten && 'visible')} {...stammdatenDetailed} />
+                    <StammdatenCard
+                        className={c('stammdaten', showStammdaten && 'visible')}
+                        {...stammdatenDetailed}
+                        showLogout={!showLoginPrompt}
+                        onLogout={() => setShowLoginPrompt(true)}
+                    />
                 ) : null}
             </div>
-
             {/** click-outside: close Stammdaten when user clicks outside of it (and not on the profile button) */}
             {/* hook implemented with useEffect */}
+
+            {/* Bottom-center floating login prompt (shows when not on login page and prompt is active) */}
+            {showLoginPrompt && activePage !== 0 && (
+                <div className={c('loginPrompt')}>
+                    <Button
+                        onClick={() => {
+                            // disable the prompt (reveal hidden elements) but do NOT navigate away
+                            setShowLoginPrompt(false);
+                        }}
+                    >
+                        Kundenportal Login
+                    </Button>
+                </div>
+            )}
         </div>
     );
 }

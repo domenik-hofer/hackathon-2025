@@ -28,7 +28,7 @@ export function DocumentList({ documents }: DocumentListProps) {
     const remaining = Math.max(0, documents.length - maxVisible);
 
     return (
-        <div className={c('document-list')}>
+        <div className={c('document-list')} data-role="document-list">
             <div className={c('mainTitle')}>
                 <h5>Eingereichte Dokumente</h5>
 

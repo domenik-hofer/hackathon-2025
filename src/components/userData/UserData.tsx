@@ -1,4 +1,5 @@
 import React from "react";
+import { Button } from '../button/Button';
 import styles from './UserData.module.css';
 // Use Vite's `?url` import to get a string URL for the asset at runtime.
 import calendarIcon from '../../assets/icons/calendar.svg?url';
@@ -27,6 +28,8 @@ export type StammdatenProps = {
   assignedTo?: string; // zugewiesener Sachbearbeiter
   kontakt?: string;
   className?: string;
+  showLogout?: boolean;
+  onLogout?: () => void;
 };
 
 function formatDate(value: string | Date) {
@@ -50,12 +53,21 @@ export function StammdatenCard({
   assignedTo,
   kontakt,
   className,
+  showLogout,
+  onLogout,
 }: StammdatenProps) {
   return (
     <div className={`${styles.container} ${className ?? ''}`}>
       <div className={styles.headerBar}>
         <div className="headingRow">
           <div className="headingTitle"><h5>Ihr Schadenfall: #1234567/0001</h5></div>
+        </div>
+        <div style={{ marginLeft: 'auto' }}>
+          {showLogout && onLogout && (
+            <Button className={styles.logoutButton} onClick={onLogout}>
+              Abmelden
+            </Button>
+          )}
         </div>
       </div>
 

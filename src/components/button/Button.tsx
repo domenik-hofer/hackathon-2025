@@ -8,13 +8,13 @@ export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
     className?: string;
 };
 
-export function Button({ title = 'Button', className, type = 'button', ...rest }: ButtonProps) {
+export function Button({ title = 'Button', children, className, type = 'button', ...rest }: ButtonProps) {
     const c = combineClasses({ styles: ButtonStyles });
     const classes = [c('button'), className].filter(Boolean).join(' ');
 
     return (
         <button className={classes} type={type} {...rest}>
-            <span className={c('flexWrapper')}>{title && <span>{title}</span>}</span>
+            <span className={c('flexWrapper')}>{children ?? title}</span>
         </button>
     );
 }

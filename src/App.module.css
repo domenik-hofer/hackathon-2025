@@ -160,3 +160,59 @@
         pointer-events: all;
     }
 }
+
+/* Floating bottom-center login prompt */
+.loginPrompt {
+    padding: 35px;
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 15px;
+    z-index: 1200;
+    pointer-events: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* small fixed logout button shown after user 'logged in' (prompt dismissed) */
+.logoutFixed {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    z-index: 1400;
+}
+
+.logoutFixed .button {
+    padding: 8px 12px;
+    font-size: 13px;
+    background-color: transparent;
+    color: var(--color-base-axa-blue);
+    border: 1px solid var(--color-base-axa-blue);
+    border-radius: 6px;
+}
+
+.logoutFixed .button:hover {
+    background-color: rgba(0,0,0,0.04);
+}
+
+/* When the login prompt is active (user not 'logged in'), hide the profile "mehr anzeigen" link
+   and the left-side document list until the user clicks the prompt. */
+.page[data-login-prompt="true"] {
+    /* disable clicks on the whole profile area while prompt is active */
+    .profile {
+        pointer-events: none;
+        user-select: none;
+
+        a {
+            display: none;
+        }
+    }
+
+    /* hide any document-list components */
+    [data-role="document-list"] {
+        display: none;
+    }
+}
+
+/* Once prompt is dismissed (data-login-prompt=false), the rule no longer matches and elements reappear */
